@@ -20,7 +20,7 @@ class ContactForm extends Component {
     const number = form.elements.number.value;
 
     const doubleContact = this.props.contacts.find(
-      contact => contact.name === name
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (doubleContact) {
       alert(`${name} is already in contacts`);
@@ -46,7 +46,6 @@ class ContactForm extends Component {
           type="text"
           name="name"
           value={this.state.name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         ></input>
@@ -57,7 +56,6 @@ class ContactForm extends Component {
           type="tel"
           name="number"
           value={this.state.number}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         ></input>
